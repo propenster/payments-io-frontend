@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  mockend_url: 'https://payments-io-api.herokuapp.com/sources',
+  mockend_url: 'https://propenster-node-apis.herokuapp.com/api/v1/sources',
 
 };
