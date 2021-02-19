@@ -30,6 +30,7 @@ img{
   height: 30%;
   font-family: 'Advent Pro';
   cursor: pointer;
+  margin-bottom: 10px;
 }
 
 #cet:hover{

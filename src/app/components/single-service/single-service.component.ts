@@ -12,6 +12,9 @@ export class SingleServiceComponent implements OnInit {
   id = this.actRoute.snapshot.params['_id'];
   Source: any = {};
   otherRelatedSources: any = [];
+  page: number = 1;
+  limit: number = 2;
+
   constructor(private service: HandlerService, private actRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
@@ -26,7 +29,7 @@ export class SingleServiceComponent implements OnInit {
   }
 
   fetchOtherRelatedSources() {
-    this.service.getAllSources().subscribe(res => {
+    this.service.getAllSources(this.page++, this.limit).subscribe(res => {
       this.otherRelatedSources = res;
       console.log(this.otherRelatedSources);
     })
@@ -34,6 +37,14 @@ export class SingleServiceComponent implements OnInit {
 
   navigateByUrl(_id){
     this.router.navigateByUrl('/payments/{{_id}}');
+  }
+
+
+  loadMoreSources(){
+    this.service.getAllSources(this.page++, this.limit).subscribe(res => {
+      this.otherRelatedSources = res;
+      console.log(this.otherRelatedSources);
+    })
   }
 
 }
