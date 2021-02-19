@@ -1,0 +1,47 @@
+[
+{
+"createdAt": "1972-12-10T06:43:00Z",
+"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+"id": 1,
+"imageUrl": "https://digital.hbs.edu/platform-digit/wp-content/uploads/sites/2/2020/02/Venmo-4.png",
+"name": "Venmo",
+"published": false,
+"url": "https://www.paystack.com/docs"
+},
+{
+"createdAt": "1972-12-10T06:43:00Z",
+"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+"id": 2,
+"imageUrl": "https://i2.wp.com/technode.com/wp-content/uploads/2018/09/alipay-logo-cover.jpg",
+"name": "Ali Pay",
+"published": false,
+"url": "https://www.paystack.com/docs"
+},
+{
+"createdAt": "1972-12-10T06:43:00Z",
+"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+"id": 3,
+"imageUrl": "https://cdn.merchantmaverick.com/wp-content/uploads/2013/03/Paypal-Logo-2015.png",
+"name": "Paypal",
+"published": false,
+"url": "https://www.paystack.com/docs"
+},
+{
+"createdAt": "1972-12-10T06:43:00Z",
+"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+"id": 4,
+"imageUrl": "https://d37ugbyn3rpeym.cloudfront.net/content-store/upload-media/5613371d1719716ca1dd7827a7ccda96846a874a.png",
+"name": "Paystack",
+"published": false,
+"url": "https://www.paystack.com/docs"
+},
+{
+"createdAt": "1972-12-10T06:43:00Z",
+"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+"id": 5,
+"imageUrl": "https://miro.medium.com/max/678/1*jcI43xgLadyJWvNUR6fuDg.jpeg",
+"name": "Flutterwave",
+"published": false,
+"url": "https://www.paystack.com/docs"
+}
+]

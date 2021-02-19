@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  mockend_url: 'https://propenster-node-apis.herokuapp.com/api/v1/sources',
+  //mockend_url: 'http://localhost:3000/api/v1/sources/',
 };
 
 /*

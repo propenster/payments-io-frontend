@@ -1,0 +1,32 @@
+<div class="container">
+
+  <div class="row">
+
+        <div class="col-lg-12" id="cet">
+
+            <a href="{{ Source.url }}"><img src="{{ Source.imageUrl }}"/></a>
+                <h4> {{ Source.name }}</h4>
+                <p> {{ Source.description }}</p>
+
+            <a class="btn btn-info btn-lg mt-4" href="{{ Source.url }}">Visit</a>
+
+        </div>
+
+        <div class="row mt-4">
+          <h2>RELATED</h2>
+                <div class="col-lg-12" id="cet" *ngFor="let source of otherRelatedSources" (click)="navigateByUrl(source._id)">
+
+                      <a href="{{ source.url }}" routerLink="/payments/{{ source._id }}"><img src="{{ source.imageUrl }}"/></a>
+                          <h4 routerLink="/payments/{{ source._id }}"> {{ source.name }}</h4>
+                          <p routerLink="/payments/{{ source._id }}"> {{ source.description }}</p>
+
+                </div>
+        </div>
+
+
+  </div>
+</div>
+
+
+
+

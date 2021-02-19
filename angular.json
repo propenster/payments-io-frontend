@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "payments-io-site"
+    }
+  },
+  "defaultProject": "payments-io-site",
+  "cli": {
+    "analytics": "bcb595ab-d358-4aa6-ab16-bdc9913590cc"
+  }
 }
