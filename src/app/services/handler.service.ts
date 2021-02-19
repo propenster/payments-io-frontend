@@ -17,8 +17,8 @@ export class HandlerService {
   constructor(private http: HttpClient) { }
 
 
-  getAllSources():Observable<Source>{
-    return this.http.get<Source>(this.api_url).pipe(
+  getAllSources(page: number, limit: number):Observable<Source>{
+    return this.http.get<Source>(this.api_url + "?page="+page + "&limit="+limit).pipe(
       retry(1),
       catchError(this.processError)
     )

@@ -10,6 +10,8 @@ import { HandlerService } from 'src/app/services/handler.service';
 export class AllServicesComponent implements OnInit {
 
   Sources: any = [];
+  page: number = 1;
+  limit: number = 5;
 
   constructor(public service: HandlerService, public router: Router) { }
 
@@ -17,7 +19,7 @@ export class AllServicesComponent implements OnInit {
     this.fetchAllSources();
   }
   fetchAllSources() {
-    this.service.getAllSources().subscribe(res => {
+    this.service.getAllSources(this.page++, this.limit).subscribe(res => {
       this.Sources = res;
       console.log(this.Sources);
     })
@@ -27,6 +29,11 @@ export class AllServicesComponent implements OnInit {
     this.router.navigateByUrl('/payments/{{_id}}');
   }
 
-
+  loadMoreSources(){
+    this.service.getAllSources(this.page++, this.limit).subscribe(res => {
+      this.Sources = res;
+      console.log(this.Sources);
+    })
+  }
 
 }
