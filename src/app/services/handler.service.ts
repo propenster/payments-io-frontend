@@ -12,6 +12,10 @@ const httpOptions = {
   })
 }
 
+export class NewsletterModel{
+  email: string;
+}
+
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +28,25 @@ export class HandlerService {
 
   constructor(private http: HttpClient) { }
 
+  createResourceRequest(data: any):Observable<any>{
+    return this.http.post("https://propenster-node-apis.herokuapp.com/api/v1/resource-requests/", data, httpOptions).pipe(
+      retry(1),
+      catchError(this.processError)
+    )
+  }
+
+  subscribeEmailToNewsletter(data: any):Observable<any>{
+    return this.http.post("https://propenster-node-apis.herokuapp.com/api/v1/newsletters/", data, httpOptions).pipe(
+      retry(1),
+      catchError(this.processError)
+    )
+  }
+  getAllEverySources():Observable<Source>{
+    return this.http.get<Source>("https://propenster-node-apis.herokuapp.com/api/v1/sources/all").pipe(
+      retry(1),
+      catchError(this.processError)
+    )
+  }
 
   getAllSources(page: number, limit: number):Observable<Source>{
     return this.http.get<Source>(this.api_url + "?page="+page + "&limit="+limit).pipe(

@@ -1,13 +1,24 @@
 <div class="container">
 
 <div class="row">
+      <div class="input-group rounded">
+        <input type="search" style="height: 2.5rem;" class="form-control rounded" [(ngModel)]="searchTerm" placeholder="Search a service" name="searchTerm" id="searchTerm" aria-label="Search"
+          aria-describedby="search-addon" />
+          <span class="input-group-text border-0" id="search-addon">
+          <i class="fas fa-search fa-2x" style="cursor:pointer; " (click)="onSearch()" ></i>
+        </span>
+      </div>
 
-<div class="col-lg-12" id="cet" *ngFor="let source of Sources" (click)="navigateByUrl(source._id)">
+
+<div class="col-lg-12" id="cet" *ngFor="let source of Sources" >
 
 <a href="{{ source.url }}" routerLink="/payments/{{ source._id }}"><img src="{{ source.imageUrl }}"/></a>
     <h4 routerLink="/payments/{{ source._id }}"> {{ source.name }}</h4>
-    <p routerLink="/payments/{{ source._id }}"> {{ source.description }}</p>
+    <p> {{ source.description }}</p>
+</div>
 
+<div *ngIf="Sources?.length === 0 " class="mt-2 py-2 px-2">
+<p>You have reached the end of the document</p>
 </div>
  <button class="btn btn-primary col-md-4 mt-4 mb-4" (click)="loadMoreSources()"> Load More</button>
 

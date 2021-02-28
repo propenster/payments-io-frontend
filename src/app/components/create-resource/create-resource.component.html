@@ -1,0 +1,68 @@
+
+
+
+<form class="form"
+  name="form"
+  (ngSubmit)="f.form.valid && createResourceRequest()"
+  #f="ngForm"
+  novalidate
+>
+  <legend>Requester's info</legend>
+    <div class="form-group">
+    <label for="requesterName">Your name:</label>
+    <input type="text" class="form-control" [(ngModel)]="ResourceRequestForm.requesterName" placeholder="Enter your name " #requesterName="ngModel" id="requesterName" name="requesterName" required minlength="4">
+
+        <p class="text-danger" *ngIf="f.submitted && requesterName.invalid">Name is required.</p>
+
+  </div>
+
+  <div class="form-group">
+    <label for="requesterEmail">Your email:</label>
+    <input type="email" class="form-control" [(ngModel)]="ResourceRequestForm.requesterEmail" placeholder="Enter your email" id="requesterEmail" name="requesterEmail" #requesterEmail="ngModel" required>
+            <p class="text-danger" *ngIf="f.submitted && requesterEmail.invalid">Email is required.</p>
+
+  </div>
+
+  <hr>
+  <legend>PSP info</legend>
+  <div class="form-group">
+    <label for="name">Name of Payment Service Provider:</label>
+    <input type="name" style="font-weight: 200;" class="form-control" [(ngModel)]="ResourceRequestForm.name" id="name" name="name" #name="ngModel" placeholder="Enter name of the PSP" required/>
+            <p class="text-danger" *ngIf="f.submitted && name.invalid">PSP name is required.</p>
+
+  </div>
+  <div class="form-group">
+    <label for="description">Short description</label>
+    <textarea class="form-control" rows="5" cols="10" [(ngModel)]="ResourceRequestForm.description" id="description" name="description" #description="ngModel" required></textarea>
+    <p class="text-danger" *ngIf="f.submitted && description.invalid">Description is required.</p>
+
+  </div>
+  <div class="form-group">
+    <label for="webUrl">Website URL </label>
+    <input type="webUrl" class="form-control" [(ngModel)]="ResourceRequestForm.webUrl" placeholder="Enter the web url of the PSP" id="webUrl" name="webUrl" #webUrl="ngModel" required/>
+    <p class="text-danger" *ngIf="f.submitted && webUrl.invalid">WebUrl is required.</p>
+
+  </div>
+  <div class="form-group">
+    <label for="docUrl">URL of API Documentation</label>
+    <input type="docUrl" class="form-control" [(ngModel)]="ResourceRequestForm.docUrl" id="docUrl" name="docUrl" #docUrl="ngModel"  placeholder="Enter url of API documentation of the PSP"   required/>
+    <p class="text-danger" *ngIf="f.submitted && docUrl.invalid">DocUrl is required.</p>
+
+  </div>
+  <div class="form-group">
+    <label for="imgUrl">Image URL:</label>
+    <input type="text" class="form-control" style="" [(ngModel)]="ResourceRequestForm.imageUrl" id="imageUrl" name="imageUrl" #imageUrl="ngModel" placeholder="Enter Image URL of logo or banner" required/>
+    <p class="text-danger" *ngIf="f.submitted && imageUrl.invalid">ImageUrl is required.</p>
+
+  </div>
+  <div class="my-2">
+    <p>By submitting this form, you are confirming that you have read, understood and do accept our <a data-dismiss="modal" routerLink="/privacy-policy">terms and conditions</a></p>
+  </div>
+  <div class="form-group mt-2">
+  <button type="submit" class="btn btn-primary" (click)="createResourceRequest()">Submit</button>
+  </div>
+
+      <div class="" id="alerter" *ngIf="isResourceRequestSubmittedSuccessfully">
+          <p class="text-success">Resource Request Created Successfully! We will review and get back to you.</p>
+      </div>
+</form>

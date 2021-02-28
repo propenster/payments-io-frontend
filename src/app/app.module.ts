@@ -10,6 +10,8 @@ import { AllServicesComponent } from './components/all-services/all-services.com
 import { SingleServiceComponent } from './components/single-service/single-service.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { FooterComponent } from './components/layouts/footer/footer.component';
+import { CreateResourceComponent } from './components/create-resource/create-resource.component';
+import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { FooterComponent } from './components/layouts/footer/footer.component';
     AllServicesComponent,
     SingleServiceComponent,
     ContactUsComponent,
-    FooterComponent
+    FooterComponent,
+    CreateResourceComponent,
+    PrivacyPolicyComponent
   ],
   imports: [
     BrowserModule,

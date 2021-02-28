@@ -20,7 +20,7 @@
                     <div class="col-md-6">
                         <div class="md-form mb-0">
                             <label for="fullname" class="">Your name</label>
-                            <input type="text" id="fullname" [(ngModel)]="contactForm.fullname" name="fullname" class="form-control" placeholder="Enter your Fullname here...">
+                            <input type="text" [(ngModel)]="contactForm.fullname" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Enter your Fullname here...">
                         </div>
                     </div>
                     <!--Grid column-->
@@ -29,7 +29,7 @@
                     <div class="col-md-6">
                         <div class="md-form mb-0">
                             <label for="email" class="">Your email</label>
-                            <input type="text" id="email" [(ngModel)]="contactForm.email" name="email" class="form-control" placeholder="Enter your email.">
+                            <input type="text" [(ngModel)]="contactForm.email" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Enter your email.">
                         </div>
                     </div>
                     <!--Grid column-->
@@ -42,7 +42,7 @@
                     <div class="col-md-12">
                         <div class="md-form mb-0">
                           <label for="subject" class="">Subject</label>
-                          <input type="text" id="subject" [(ngModel)]="contactForm.subject" name="subject" class="form-control" placeholder="Enter subject of the message">
+                          <input type="text" [(ngModel)]="contactForm.subject" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Enter subject of the message">
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
 
                         <div class="md-form">
                             <label for="message">Your message</label>
-                            <textarea type="text" id="message" [(ngModel)]="contactForm.message" name="message" rows="5" class="form-control md-textarea"></textarea>
+                            <textarea type="text" [(ngModel)]="contactForm.message" [ngModelOptions]="{standalone: true}" rows="5" class="form-control md-textarea"></textarea>
                         </div>
 
                     </div>

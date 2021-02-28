@@ -1,4 +1,38 @@
+<script type="text/javascript">
+const counters = document.getElementById('.counter');
+const speed = 200; // The lower the slower
 
+counters.forEach(counter => {
+    const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+
+        // Lower inc to slow and higher to slow
+        const inc = target / speed;
+
+        // console.log(inc);
+        // console.log(count);
+
+        // Check if target is reached
+        if (count < target) {
+            // Add inc to count and output in counter
+            counter.innerText = count + inc;
+            // Call function every ms
+            setTimeout(updateCount, 1);
+        } else {
+            counter.innerText = target;
+        }
+    };
+
+    updateCount();
+});
+
+
+
+
+
+
+</script>
 
  <!-- Image and text -->
   <nav class="navbar sticky-top navbar-custom">
@@ -11,7 +45,8 @@
     <div class="row center">
         <h1 class="my-2">ALL PAYMENT API's </h1>&nbsp;
 
-        <h1>Over 200 Payment API Resources ... all in one place. </h1>
+        <h3>Browse {{ allEverySources.length }}+ Payment Service Providers & API Resources ... all in one place. </h3>
+        <!--<div class="counter" data-target="{{ allEverySources.length }}">0</div>-->
     </div>
 </div>
 <div class="container-fluid">
@@ -32,7 +67,7 @@
         <li class="nav-link" ><a class="" routerLink="/" style="color: white;"><i class="fas fa-book-open"></i> Resources</a></li>
         <li class="nav-link"><a class="" routerLink="/contact-us" style="color: white;"><i class="fas fa-envelope-open-text"></i> Contact</a></li>
         <li class="nav-link"><a class="" routerLink="/" style="color: white;"><i class="fas fa-code"></i> API's</a></li>
-        <li class="nav-link"><a class="" routerLink="/">Links</a></li>
+        <!--<li class="nav-link"><a class="" routerLink="/">Links</a></li>-->
       </ul>
 
      <ul class="dropdown-menu text-white">
@@ -51,8 +86,36 @@
     <div class="col-md-3 ml-4">
 
       <div class="mt-4">
-        <a class="btn btn-success col-md-5 mr-1">Sponsors</a>
-        <a class="btn btn-success col-md-5 ml-4" style="color: #A6C2F7; background: #25375A;">Add Resource</a>
+        <a class="btn btn-success col-md-5 mr-3">Sponsors</a>
+
+<!-- Button trigger modal -->
+<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>-->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color: black; font-size: 1.5rem;" id="exampleModalLabel">Add a Resource for Review </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-create-resource></app-create-resource>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="redirectToHomepage()">Close</button>
+        <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        <a class="btn btn-success col-md-5 ml-3" style="color: #A6C2F7; background: #25375A;"  data-toggle="modal" data-target="#exampleModal">Add Resource</a>
       </div>
       <div class="">
         <h3 class="my-4" style="color: white; text-align: center; border: 1px solid white; border-radius: 4px; padding: 5px 10px;">Featured</h3>
@@ -71,8 +134,18 @@
         </ul>
       </div>
       <div class="this-will-be-for-twitter-api-or-smthg">
-        <h3>LATEST TWEETS</h3>
+        <h3>NEWSLETTER</h3>
+        <p>Subscribe your email for latest updates every other week</p>
+        <form class="form inline">
+          <div class="form-group">
+            <input type="text" name="email" id="email" [(ngModel)]="NewsletterModel.email" class="form-control" placeholder="Enter your email" />
+          </div>
+          <button class="btn btn-primary btn-xs mt-2" (click)="subscribeToNewsletter()" >submit</button>
 
+        </form>
+        <div class="" *ngIf="isNewsletterSubscriptionSuccessful">
+          <p class="text-success">Thank you for subscribing to our newsletter!</p>
+        </div>
       </div>
 
     </div>

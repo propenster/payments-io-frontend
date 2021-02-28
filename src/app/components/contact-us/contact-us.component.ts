@@ -24,7 +24,7 @@ export class ContactUsComponent implements OnInit {
     this.service.sendContactEmail(this.contactForm).subscribe((res: {})=>{
       this.responseAlert = res['message'];
 
-      console.log(this.responseAlert);
+      //console.log(this.responseAlert);
       alert(res['message']);
       this.contactForm = {fullname: '', email: '', subject: '', message: ''};
     })

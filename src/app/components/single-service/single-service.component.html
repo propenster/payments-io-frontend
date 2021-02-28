@@ -14,14 +14,14 @@
 
         <div class="row mt-4">
           <h2>RELATED</h2>
-                <div class="col-lg-12" id="cet" *ngFor="let source of otherRelatedSources" (click)="navigateByUrl(source._id)">
+                <div class="col-lg-12" style="margin-bottom: 4px;" *ngFor="let source of otherRelatedSources" >
 
-                      <a href="{{ source.url }}" routerLink="/payments/{{ source._id }}"><img src="{{ source.imageUrl }}"/></a>
-                          <h4 routerLink="/payments/{{ source._id }}"> {{ source.name }}</h4>
-                          <p routerLink="/payments/{{ source._id }}"> {{ source.description }}</p>
+                      <a routerLink="/payments/{{ source._id }}"><img src="{{ source.imageUrl }}" (click)="gotoUrl(source._id)"/></a>
+                          <h4> {{ source.name }}</h4>
+                          <p> {{ source.description }}</p>
 
                 </div>
-                         <button class="btn btn-primary col-md-4 mt-4 mb-4" (click)="loadMoreSources()"> Load More</button>
+                <button class="btn btn-primary col-md-4 mt-4 mb-4" (click)="loadMoreSources()"> Load More</button>
 
         </div>
 
