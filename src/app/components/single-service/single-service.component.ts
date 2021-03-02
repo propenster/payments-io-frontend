@@ -1,7 +1,19 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HandlerService } from 'src/app/services/handler.service';
 
+
+const alexaHttpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'Application/json',
+    'x-api-key': 'LrUFSZ7OpY63Agsf8kHU66HzEx1lkiAT976gst98',
+    'Access-Control-Allow-Headers' : 'Content-Type',
+    'Access-Control-Allow-Origin': 'https://www.example.com',
+    'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
+  })
+}
 @Component({
   selector: 'app-single-service',
   templateUrl: './single-service.component.html',
@@ -15,13 +27,20 @@ export class SingleServiceComponent implements OnInit {
   otherRelatedSources: any = [];
   page: number = 1;
   limit: number = 2;
+  siteRank: string = '';
+  myHtml: any;
+  result: string;
 
-  constructor(private service: HandlerService, private actRoute: ActivatedRoute, private router: Router) { }
+
+  constructor(private service: HandlerService,      private sanitizer: DomSanitizer, private http: HttpClient, private actRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     //this.fetchSingleServiceBySlug();
     this.fetchSingleService();
     this.fetchOtherRelatedSources();
+    //this.fetchSiteRank();
+
+
     //console.log(this.actRoute.snapshot.params);
   }
 
@@ -33,11 +52,21 @@ export class SingleServiceComponent implements OnInit {
   //   })
   // }
 
+   fetchSiteRank(url){
+    const source = this.Source;
+    this.http.get<any>(`https://awis.api.alexa.com/api?Action=UrlInfo&Count=10&ResponseGroup=Rank,LinksInCount&Start=1&Url=${url}`, alexaHttpOptions).subscribe(res => {
+      this.siteRank = res;
+      console.log(this.siteRank);
+    })
+
+   }
 
 
   fetchSingleService() {
     this.service.getSingleService(this.id).subscribe(res =>{
       this.Source = res;
+      this.fetchSiteRank(this.Source.url);
+
       //console.log(this.Source);
     })
   }
