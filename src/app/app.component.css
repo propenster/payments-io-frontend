@@ -11,13 +11,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap');
 
 .navbar-brand{
-  font-family: 'Metal Mania', 'Chewy', 'Fugaz';
-  font-size: 45px;
-  font-weight: 400;
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 30px;
+  font-weight:bolder;
+
 
 }
 .navbar.navbar-dark.bg-dark{
-  background-color: #0a0b0d;
+  background-color: #3D5FA0;
 
 }
 
@@ -33,7 +34,7 @@ color: rgb(255, 255, 255);
 }
 
 .navbar-custom {
-  background-color: #0d3513;
+  background-color: #3D5FA0;
   width: 100%;
   /*#0a0b0d;*/
 }
