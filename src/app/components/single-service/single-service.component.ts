@@ -22,6 +22,8 @@ const alexaHttpOptions = {
 export class SingleServiceComponent implements OnInit {
 
   id = this.actRoute.snapshot.params['_id'];
+  slug = this.actRoute.snapshot.params['slug'];
+
   //slug = this.actRoute.snapshot.params.slug;
   Source: any = {};
   otherRelatedSources: any = [];
@@ -35,8 +37,8 @@ export class SingleServiceComponent implements OnInit {
   constructor(private service: HandlerService,      private sanitizer: DomSanitizer, private http: HttpClient, private actRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    //this.fetchSingleServiceBySlug();
-    this.fetchSingleService();
+    this.fetchSingleServiceBySlug()
+    //this.fetchSingleService();
     this.fetchOtherRelatedSources();
     //this.fetchSiteRank();
 
@@ -71,6 +73,13 @@ export class SingleServiceComponent implements OnInit {
     })
   }
 
+  fetchSingleServiceBySlug(){
+    this.service.getSingleServiceBySlug(this.slug).subscribe(res => {
+      this.Source = res;
+      this.fetchSiteRank(this.Source.url);
+    })
+  }
+
   fetchOtherRelatedSources() {
     this.service.getAllEverySources().subscribe(res => {
       this.otherRelatedSources = res;
@@ -91,9 +100,9 @@ export class SingleServiceComponent implements OnInit {
     })
   }
 
-  gotoUrl(id: string){
+  gotoUrl(slug: string){
     //window.location.reload();
-    window.location.href = "/payments/"+id;
+    window.location.href = "/payments/platforms/" + slug;
     //this.router.navigate(['/payments/' + id]);
 
   }

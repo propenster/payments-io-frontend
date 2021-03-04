@@ -62,6 +62,13 @@ export class HandlerService {
     )
   }
 
+  getSingleServiceBySlug(slug: string): Observable<Source>{
+    return this.http.get<Source>(this.api_url + "/sourceBySlug/"+slug).pipe(
+      retry(1),
+      catchError(this.processError)
+    )
+  }
+
   sendContactEmail(data):Observable<any>{
     return this.http.post<any>("https://propenster-node-apis.herokuapp.com/api/v1/send-contact-email", JSON.stringify(data), httpOptions).pipe(
       retry(1),

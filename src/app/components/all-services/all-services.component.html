@@ -2,7 +2,7 @@
 
 <div class="row">
       <div class="input-group rounded">
-        <input type="search" style="height: 2.5rem;" class="form-control rounded" (keyup.enter)="onSearch()" [(ngModel)]="searchTerm" placeholder="Search a service" name="searchTerm" id="searchTerm" aria-label="Search"
+        <input type="search" style="height: 2.5rem;" class="form-control rounded" (keyup.enter)="onSearch()" [(ngModel)]="searchTerm" placeholder="Search a service provider" name="searchTerm" id="searchTerm" aria-label="Search"
           aria-describedby="search-addon" />
           <span class="input-group-text border-0" id="search-addon">
           <i class="fas fa-search fa-2x" style="cursor:pointer; " (click)="onSearch()" ></i>
@@ -12,8 +12,8 @@
 
 <div class="col-lg-12" id="cet" *ngFor="let source of Sources" >
 
-<a href="{{ source.url }}" routerLink="/payments/{{ source._id }}"><img src="{{ source.imageUrl }}"/></a>
-    <h4 routerLink="/payments/{{ source._id }}"> {{ source.name }}</h4>
+<a href="{{ source.url }}" routerLink="/payments/platforms/{{ source.slug }}"><img src="{{ source.imageUrl }}"/></a>
+    <h4 routerLink="/payments/platforms/{{ source.slug }}"> {{ source.name }}</h4>
     <p> {{ source.description }}</p>
 </div>
 

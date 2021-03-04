@@ -18,7 +18,7 @@
           <h2>RELATED</h2>
                 <div class="col-lg-12" style="margin-bottom: 4px;" *ngFor="let source of otherRelatedSources" >
 
-                      <a routerLink="/payments/{{ source._id }}"><img src="{{ source.imageUrl }}" (click)="gotoUrl(source._id)"/></a>
+                      <a routerLink="/payments//platforms/{{ source.slug }}"><img src="{{ source.imageUrl }}" (click)="gotoUrl(source.slug)"/></a>
                           <h4> {{ source.name }}</h4>
                           <p> {{ source.description }}</p>
 

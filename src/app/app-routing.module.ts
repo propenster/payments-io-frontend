@@ -9,7 +9,8 @@ import { SingleServiceComponent } from './components/single-service/single-servi
 const routes: Routes = [
   { path: '', component: AllServicesComponent },
   { path: 'payments', component: AllServicesComponent },
-  { path: 'payments/:_id', component: SingleServiceComponent },
+  { path: 'payments/platforms/', component: AllServicesComponent },
+  { path: 'payments/platforms/:slug', component: SingleServiceComponent },
   //{ path: 'payments/providers/:slug', component: SingleServiceComponent },
   { path: 'contact-us', component: ContactUsComponent },
   //{ path: 'resources/create', component: CreateResourceComponent },
