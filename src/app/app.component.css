@@ -13,12 +13,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
 
+
+@import url('https://fonts.googleapis.com/css2?family=Ravi+Prakash&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quantico:wght@700&family=Ravi+Prakash&display=swap');
+
 .navbar-brand{
-  font-family: -apple-system, "Roboto Mono", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: 'Quantico', cursive, "Roboto Mono", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 30px;
   font-weight:bolder;
-
-
 }
 .navbar.navbar-dark.bg-dark{
   background-color: #3D5FA0;
