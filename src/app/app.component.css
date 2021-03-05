@@ -39,10 +39,30 @@ color: rgb(255, 255, 255);
 }
 
 .navbar-custom {
-  background-color: #3D5FA0;
+  /* background-color: #3D5FA0; */
+
+  float: left;
+    /* font: bold 12px Arial, Helvetica, Sans-serif;
+    border: 1px solid #121314;
+    border-top: 1px solid #2b2e30;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 0px; */
+    box-sizing: border-box;
+    overflow: hidden;
+    width:100%;
+    min-width: 650px;
   width: 100%;
   /*#0a0b0d;*/
 }
+
+#hero{
+  width: 100%;
+  height: 400px;
+  background-image: linear-gradient(to right, rgba(25, 27, 31, 0.62), rgba(25, 27, 31, 0.52)), url(../assets/payment_vendors.png);
+}
+
+/* style="border: 0.01rem solid gray; height: 35%;background-image: linear-gradient(to right, rgba(25, 27, 31, 0.62), rgba(25, 27, 31, 0.52)), url(../../assets/payment_vendors.png); padding: 20px; border-radius: 4px; margin-top: 10px; margin-bottom: 20px; align-items: center; display: flex; " */
 
 .row.center h1 {
   overflow: hidden; /* Ensures the content is not revealed until the animation */

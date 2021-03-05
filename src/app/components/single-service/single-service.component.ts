@@ -7,10 +7,10 @@ import { HandlerService } from 'src/app/services/handler.service';
 
 const alexaHttpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'Application/json',
+    'Content-Type': 'text/plain, multipart/form-data, or application/x-www-form-urlencoded',
     'x-api-key': 'LrUFSZ7OpY63Agsf8kHU66HzEx1lkiAT976gst98',
     'Access-Control-Allow-Headers' : 'Content-Type',
-    'Access-Control-Allow-Origin': 'https://www.example.com',
+    'Access-Control-Allow-Origin': 'https://www.paymentor.io/',
     'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
   })
 }
