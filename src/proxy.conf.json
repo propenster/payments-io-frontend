@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "https://awis.api.alexa.com/api",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

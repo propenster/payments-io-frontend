@@ -4,14 +4,15 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HandlerService } from 'src/app/services/handler.service';
 
+import * as xml2js from 'xml2js';
+
 
 const alexaHttpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'text/plain, multipart/form-data, or application/x-www-form-urlencoded',
+    'Content-Type': 'text/xml',
     'x-api-key': 'LrUFSZ7OpY63Agsf8kHU66HzEx1lkiAT976gst98',
-    'Access-Control-Allow-Headers' : 'Content-Type',
-    'Access-Control-Allow-Origin': 'https://www.paymentor.io/',
-    'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
+    'Accept': 'text/xml'
+
   })
 }
 @Component({
@@ -58,12 +59,25 @@ export class SingleServiceComponent implements OnInit {
 
    fetchSiteRank(url){
     const source = this.Source;
-    this.http.get<any>(`https://awis.api.alexa.com/api?Action=UrlInfo&Count=10&ResponseGroup=Rank,LinksInCount&Start=1&Url=${url}`, alexaHttpOptions).subscribe(res => {
-      this.siteRank = res;
-      console.log(this.siteRank);
+
+    const headers = new HttpHeaders({ 'Content-Type': 'text/xml',
+    'x-api-key': 'LrUFSZ7OpY63Agsf8kHU66HzEx1lkiAT976gst98',
+    'Accept': 'text/xml' });
+
+    this.http.get<any>(`http://localhost:4200/api?Output=json&Action=UrlInfo&Count=10&ResponseGroup=Rank,LinksInCount&Start=1&Url=${url}`, { headers: headers }).subscribe(res => {
+      this.siteRank = res['Awis']['Results']['Result']['Alexa']['TrafficData']['Rank'];
+      console.log("This is the Result " + JSON.stringify(this.siteRank));
     })
 
    }
+
+
+
+
+
+
+
+   //https://awis.api.alexa.com/api?Action=UrlInfo&Count=10&ResponseGroup=Rank,LinksInCount&Start=1&Url=
 
 
   fetchSingleService() {
