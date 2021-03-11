@@ -64,7 +64,7 @@ export class SingleServiceComponent implements OnInit {
     'x-api-key': 'LrUFSZ7OpY63Agsf8kHU66HzEx1lkiAT976gst98',
     'Accept': 'text/xml' });
 
-    this.http.get<any>(`http://localhost:4200/api?Output=json&Action=UrlInfo&Count=10&ResponseGroup=Rank,LinksInCount&Start=1&Url=${url}`, { headers: headers }).subscribe(res => {
+    this.http.get<any>(`https://paymentor.io/api?Output=json&Action=UrlInfo&Count=10&ResponseGroup=Rank,LinksInCount&Start=1&Url=${url}`, { headers: headers }).subscribe(res => {
       this.siteRank = res['Awis']['Results']['Result']['Alexa']['TrafficData']['Rank'];
       console.log("This is the Result " + JSON.stringify(this.siteRank));
     })
