@@ -6,9 +6,11 @@
 
             <a href="{{ Source.url }}"><img src="{{ Source.imageUrl }}"/></a>
                 <h4> {{ Source.name }}</h4>
-                <p> {{ Source.description }}</p>
+                <!--<p> {{ Source.description }}</p>-->
+                <p>Category: <span class="" style="color: green;">{{ category }}</span></p>
+                <p>tags: <span class="" style="color: green;">{{ subcategories }}</span></p>
                 <p>Alexa Global Rank: {{ siteRank }} </p>
-                <p>Featured on <a href="https://rapidapi.com/" style="color: blue;">RapidAPI</a> No</p>
+                <p>Featured on <a href="https://rapidapi.com/" style="color: blue;">RapidAPI</a>: No</p>
 
             <a class="btn btn-info btn-lg mt-4" href="{{ Source.url }}">Visit</a>
 
@@ -20,7 +22,9 @@
 
                       <a routerLink="/payments//platforms/{{ source.slug }}"><img src="{{ source.imageUrl }}" (click)="gotoUrl(source.slug)"/></a>
                           <h4> {{ source.name }}</h4>
-                          <p> {{ source.description }}</p>
+                          <!--<p> {{ source.description }}</p>-->
+                              <p>An awesome Payment Service Provider </p>
+
 
                 </div>
                 <button class="btn btn-primary col-md-4 mt-4 mb-4" (click)="loadMoreSources()"> Load More</button>

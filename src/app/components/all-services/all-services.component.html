@@ -14,11 +14,12 @@
 
 <a href="{{ source.url }}" routerLink="/payments/platforms/{{ source.slug }}"><img src="{{ source.imageUrl }}"/></a>
     <h4 > {{ source.name }}</h4>
-    <p> {{ source.description }}</p>
+    <p>An awesome Payment Service Provider </p>
+    <!--<p> {{ source.description }}</p>-->
 </div>
 
 <div *ngIf="Sources?.length === 0 " class="mt-2 py-2 px-2">
-<p>You have reached the end of the document</p>
+<p>Loading...</p>
 </div>
  <button class="btn btn-primary col-md-4 mt-4 mb-4" (click)="loadMoreSources()"> Load More</button>
 

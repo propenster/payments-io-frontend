@@ -32,6 +32,8 @@ export class SingleServiceComponent implements OnInit {
   siteRank: string = '';
   myHtml: any;
   result: string;
+  category: string = 'Digital Payments';
+  subcategories: string[] = ['payments ', 'digital payments ', 'cards ', ''];
 
 
   constructor(private service: HandlerService,      private sanitizer: DomSanitizer, private http: HttpClient, private actRoute: ActivatedRoute, private router: Router) { }
